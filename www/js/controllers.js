@@ -56,7 +56,9 @@ angular.module('starter.controllers', [])
         }
     })
     .controller('FacilityCtrl', function ($scope, $state) {
-
+        $scope.handleMoreClick = function () {
+            alert('you clicked it');
+        };
     })
 
     .directive('map', function () {
@@ -64,7 +66,7 @@ angular.module('starter.controllers', [])
             restrict: 'A',
             link: function (scope, element, attrs) {
 
-                var xmlhttp;
+              /*  var xmlhttp;
                 var responseJSON, lat, lng, gymname;
                 if (window.XMLHttpRequest) {
                     xmlhttp = new XMLHttpRequest();
@@ -80,7 +82,7 @@ angular.module('starter.controllers', [])
                         gymname = responseJSON.name;
                         // now responseJSON.latitude and responseJSON.longitude can be used
                     }
-                };
+                }; */
 
                 // var request = new XMLHttpRequest();
                 // request.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
@@ -93,15 +95,15 @@ angular.module('starter.controllers', [])
                 // }
 
 
-                xmlhttp.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
+              /*  xmlhttp.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
                 //xmlhttp.open("GET", "http://datastoretest-164219.appspot.com/greeting?name=Dhara", true);
                 //xmlhttp.open("GET", "http://localhost:8080/greeting?name=Bo", true);
-                xmlhttp.send();
+                xmlhttp.send(); */
 
 
                 var locations = [
-                    [gymname, lat, lng, 4, 'templates/gymPage.html'],
-                    ['Santa clara Gym 1', 37.353059, -121.936603, 5, 'templates/gymPage.html']
+
+                    ['Santa clara Gym 1', 37.353059, -121.936603, 5, 'templates/facility.html']
                 ];
 
 
