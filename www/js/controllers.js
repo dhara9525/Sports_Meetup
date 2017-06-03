@@ -57,10 +57,17 @@ angular.module('starter.controllers', [])
     })
     .controller('FacilityCtrl', function ($scope, $state) {
         $scope.handleMoreClick = function () {
-            alert('you clicked it');
+
         };
     })
-
+    .controller('HelpCtrl', function ($scope, $state) {
+        $scope.comment = {
+            text: ""
+        };
+        $scope.submitComments = function () {
+            alert("Thanks.. Your comment has been submitted: " + $scope.comment.text);
+        }
+    })
     .directive('map', function () {
         return {
             restrict: 'A',
@@ -103,7 +110,7 @@ angular.module('starter.controllers', [])
 
                 var locations = [
 
-                    ['Santa clara Gym 1', 37.353059, -121.936603, 5, 'templates/facility.html']
+                    ['Santa clara Gym 1', 37.353059, -121.936603, 5, 'facility.html']
                 ];
 
 
