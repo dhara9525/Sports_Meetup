@@ -73,6 +73,7 @@
     padding: 10px;
 }
 
+
 .help-container textarea {
     width: 90%;
     height: 75%;
@@ -81,6 +82,9 @@
     height: 100px;
     border: 1px solid black;
 }
+
+
+
 
 .submit-comments, .other-contact{
     margin-top: 30px;
@@ -91,4 +95,21 @@
     width: 20px;
     height: 20px;
     margin: 0 10px;
+}
+
+.site-footer p.social a {
+    border: 1px solid #949792;
+    border-radius: 50%;
+    color: #949792;
+    display: inline-block;
+    height: 182px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 182px;
+}
+
+.site-footer p.social a:hover {
+    border: 1px solid #fff;
+    color: #fff;
 }

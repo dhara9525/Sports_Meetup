@@ -51,7 +51,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
         params: {
             user: null
         }
-    });
+    })
+
+        .state('about', {
+            url: '/about',
+            templateUrl: 'templates/about.html',
+            controller: 'AboutCtrl'
+        });
 
     GoogleSigninProvider.init({
         client_id: '1054860948248-hkkkfe582ct1aqmi213h4bahmco7t9uj.apps.googleusercontent.com',

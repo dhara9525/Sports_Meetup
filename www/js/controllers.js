@@ -68,6 +68,25 @@ angular.module('starter.controllers', [])
             alert("Thanks.. Your comment has been submitted: " + $scope.comment.text);
         }
     })
+
+    .controller('AboutCtrl', function ($scope, $state) {
+        $scope.myFunc = function() {
+            $scope.showMe1 = false;
+            $scope.showMe2 = false;
+            $scope.showMe = !$scope.showMe;
+        }
+        $scope.myFunc1 = function() {
+            $scope.showMe = false;
+            $scope.showMe2 = false;
+            $scope.showMe1 = !$scope.showMe1;
+        }
+
+        $scope.myFunc2 = function() {
+            $scope.showMe = false;
+            $scope.showMe1 = false;
+            $scope.showMe2 = !$scope.showMe2;
+        }
+    })
     .directive('map', function () {
         return {
             restrict: 'A',
