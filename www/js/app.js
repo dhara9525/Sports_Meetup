@@ -44,7 +44,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
             params: {
                 user: null
             }
-        }).state('help', {
+        })
+        .state('help', {
         url: '/help',
         templateUrl: 'templates/help.html',
         controller: 'HelpCtrl',
