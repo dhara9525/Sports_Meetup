@@ -56,7 +56,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
         .state('about', {
             url: '/about',
             templateUrl: 'templates/about.html',
-            controller: 'AboutCtrl'
+            controller: 'AboutCtrl',
+            params: {
+                user: null
+            }
         });
 
     GoogleSigninProvider.init({

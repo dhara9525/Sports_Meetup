@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
 
 
     //home page controller
-    .controller('MapCtrl', function ($scope, $state, $http) {
+    .controller('MapCtrl', function ($scope, $state, $http, $ionicHistory) {
         if (!$state.params.user) {
             $state.go('login');
         }
@@ -53,6 +53,11 @@ angular.module('starter.controllers', [])
                 .then(function (response) {
                     //use server returned data here
                 });
+
+        }
+
+        $scope.goBack = function(){
+            $ionicHistory.goBack();
         }
     })
     .controller('FacilityCtrl', function ($scope, $state) {
@@ -69,7 +74,7 @@ angular.module('starter.controllers', [])
         }
     })
 
-    .controller('AboutCtrl', function ($scope, $state) {
+    .controller('AboutCtrl', function ($scope, $state, $ionicHistory) {
         $scope.myFunc = function() {
             $scope.showMe1 = false;
             $scope.showMe2 = false;
@@ -85,6 +90,10 @@ angular.module('starter.controllers', [])
             $scope.showMe = false;
             $scope.showMe1 = false;
             $scope.showMe2 = !$scope.showMe2;
+        }
+
+        $scope.goBack = function(){
+            $ionicHistory.goBack();
         }
     })
     .directive('map', function () {
