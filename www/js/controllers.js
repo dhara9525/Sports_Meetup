@@ -68,6 +68,8 @@ angular.module('starter.controllers', [])
         $scope.submitComments = function () {
             alert("Thanks.. Your comment has been submitted: " + $scope.comment.text);
         }
+
+
     })
 
     .controller('AboutCtrl', function ($scope, $state, $ionicHistory) {
@@ -186,8 +188,6 @@ angular.module('starter.controllers', [])
             }
         };
     })
-
-
 
 
 
