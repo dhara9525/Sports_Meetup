@@ -20,7 +20,6 @@ angular.module('starter.controllers', [])
             }, function (err) {
                 console.log(err);
             });
-
         };
 
         $scope.doLogin = function () {
@@ -33,9 +32,6 @@ angular.module('starter.controllers', [])
             $state.go('map', {user: $scope.loginData.username});
         };
     })
-
-
-
 
 
     //home page controller
@@ -56,7 +52,7 @@ angular.module('starter.controllers', [])
 
         }
 
-        $scope.goBack = function(){
+        $scope.goBack = function () {
             $ionicHistory.goBack();
         }
     })
@@ -75,49 +71,49 @@ angular.module('starter.controllers', [])
     })
 
     .controller('AboutCtrl', function ($scope, $state, $ionicHistory) {
-        $scope.myFunc = function() {
+        $scope.myFunc = function () {
             $scope.showMe1 = false;
             $scope.showMe2 = false;
             $scope.showMe = !$scope.showMe;
         }
-        $scope.myFunc1 = function() {
+        $scope.myFunc1 = function () {
             $scope.showMe = false;
             $scope.showMe2 = false;
             $scope.showMe1 = !$scope.showMe1;
         }
 
-        $scope.myFunc2 = function() {
+        $scope.myFunc2 = function () {
             $scope.showMe = false;
             $scope.showMe1 = false;
             $scope.showMe2 = !$scope.showMe2;
         }
 
-        $scope.goBack = function(){
+        $scope.goBack = function () {
             $ionicHistory.goBack();
         }
     })
     .directive('map', function () {
         return {
             restrict: 'A',
-            link: function (scope, element, attrs) {
-
-              /*  var xmlhttp;
-                var responseJSON, lat, lng, gymname;
-                if (window.XMLHttpRequest) {
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for older browsers
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        responseJSON = JSON.parse(this.responseText);
-                        lat = responseJSON.lat;
-                        lng = responseJSON.lon;
-                        gymname = responseJSON.name;
-                        // now responseJSON.latitude and responseJSON.longitude can be used
-                    }
-                }; */
+            bindToController: true,
+            link: function (scope, element, attrs, $state) {
+                /*  var xmlhttp;
+                 var responseJSON, lat, lng, gymname;
+                 if (window.XMLHttpRequest) {
+                 xmlhttp = new XMLHttpRequest();
+                 } else {
+                 // code for older browsers
+                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                 }
+                 xmlhttp.onreadystatechange = function () {
+                 if (this.readyState == 4 && this.status == 200) {
+                 responseJSON = JSON.parse(this.responseText);
+                 lat = responseJSON.lat;
+                 lng = responseJSON.lon;
+                 gymname = responseJSON.name;
+                 // now responseJSON.latitude and responseJSON.longitude can be used
+                 }
+                 }; */
 
                 // var request = new XMLHttpRequest();
                 // request.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
@@ -130,10 +126,10 @@ angular.module('starter.controllers', [])
                 // }
 
 
-              /*  xmlhttp.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
-                //xmlhttp.open("GET", "http://datastoretest-164219.appspot.com/greeting?name=Dhara", true);
-                //xmlhttp.open("GET", "http://localhost:8080/greeting?name=Bo", true);
-                xmlhttp.send(); */
+                /*  xmlhttp.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
+                 //xmlhttp.open("GET", "http://datastoretest-164219.appspot.com/greeting?name=Dhara", true);
+                 //xmlhttp.open("GET", "http://localhost:8080/greeting?name=Bo", true);
+                 xmlhttp.send(); */
 
 
                 var locations = [
@@ -167,25 +163,27 @@ angular.module('starter.controllers', [])
                         url: locations[i][4]
                     });
 
-                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
                         return function () {
                             infowindow.setContent(locations[i][0]);
                             infowindow.open(map, marker);
-                            map.setZoom(18);
+                            map.setZoom(15);
                             map.setCenter(marker.getPosition());
                         }
                     })(marker, i));
 
-                    google.maps.event.addListener(marker, 'dblclick', (function (marker, i) {
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
-                            window.location.href = this.url;
+                            scope.goToFacility(locations[0]);
                         }
                     })(marker, i));
                 }
-
+            },
+            controller: function ($scope, $state) {
+                $scope.goToFacility = function (selectedLocation) {
+                    $state.go('facility', {facilityInfo: selectedLocation});
+                }
             }
-
-
         };
     })
 

@@ -42,25 +42,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
             templateUrl: 'templates/facility.html',
             controller: 'FacilityCtrl',
             params: {
-                user: null
+                user: null,
+                facilityInfo: null
             }
-        }).state('help', {
-        url: '/help',
-        templateUrl: 'templates/help.html',
-        controller: 'HelpCtrl',
-        params: {
-            user: null
-        }
-    })
-
-        .state('about', {
-            url: '/about',
-            templateUrl: 'templates/about.html',
-            controller: 'AboutCtrl',
+        })
+        .state('help', {
+            url: '/help',
+            templateUrl: 'templates/help.html',
+            controller: 'HelpCtrl',
             params: {
                 user: null
             }
-        });
+        })
+        .state('about', {
+        url: '/about',
+        templateUrl: 'templates/about.html',
+        controller: 'AboutCtrl',
+        params: {
+            user: null
+        }
+    });
 
     GoogleSigninProvider.init({
         client_id: '1054860948248-hkkkfe582ct1aqmi213h4bahmco7t9uj.apps.googleusercontent.com',
