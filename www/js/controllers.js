@@ -94,100 +94,69 @@ angular.module('starter.controllers', [])
             $ionicHistory.goBack();
         }
     })
-    .directive('map', function () {
+    .directive('map',['$http',function($http) {
         return {
             restrict: 'A',
             bindToController: true,
-            link: function (scope, element, attrs, $state) {
-                /*  var xmlhttp;
-                 var responseJSON, lat, lng, gymname;
-                 if (window.XMLHttpRequest) {
-                 xmlhttp = new XMLHttpRequest();
-                 } else {
-                 // code for older browsers
-                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                 }
-                 xmlhttp.onreadystatechange = function () {
-                 if (this.readyState == 4 && this.status == 200) {
-                 responseJSON = JSON.parse(this.responseText);
-                 lat = responseJSON.lat;
-                 lng = responseJSON.lon;
-                 gymname = responseJSON.name;
-                 // now responseJSON.latitude and responseJSON.longitude can be used
-                 }
-                 }; */
+            link: function (scope, element, attrs) {
 
-                // var request = new XMLHttpRequest();
-                // request.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
-                // request.send(null);
-                // if (request.status == 200) {
-                //   responseJSON = JSON.parse(request.responseText);
-                //   lat = responseJSON.lat;
-                //   lng = responseJSON.lon;
-                //   //document.getElementById("demo").innerHTML = responseJSON.lat;
-                // }
+                getGymMapData();
 
+                function getGymMapData(){
+                    $http.get("https://datastoretest-164219.appspot.com/test/map")
+                        .then(function(response) {
+                            var mapMarkers = response.data.results;
 
-                /*  xmlhttp.open('GET', 'http://datastoretest-164219.appspot.com/startup?did=d1', false);
-                 //xmlhttp.open("GET", "http://datastoretest-164219.appspot.com/greeting?name=Dhara", true);
-                 //xmlhttp.open("GET", "http://localhost:8080/greeting?name=Bo", true);
-                 xmlhttp.send(); */
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 14,
+                                center: new google.maps.LatLng(mapMarkers[0].lat, mapMarkers[0].lon),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP
+                            });
 
+                            var infowindow = new google.maps.InfoWindow();
 
-                var locations = [
+                            var marker, i;
+                            var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+                            var icon = {
+                                url: 'http://icons.iconarchive.com/icons/sonya/swarm/256/gym-icon.png', // url
+                                scaledSize: new google.maps.Size(25, 25), // scaled size
+                                origin: new google.maps.Point(0, 0), // origin
+                                anchor: new google.maps.Point(0, 0) // anchor
+                            };
 
-                    ['Santa clara Gym 1', 37.353059, -121.936603, 5, 'facility.html']
-                ];
+                            mapMarkers.forEach(function(marker){
+                                var mapMarker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(marker.lat, marker.lon),
+                                    map: map,
+                                    icon: icon
+                                });
 
+                                google.maps.event.addListener(mapMarker, 'click', (function (mapMarker) {
+                                    return function () {
+                                        infowindow.setContent(marker.name);
+                                        infowindow.open(map, mapMarker);
+                                        map.setZoom(15);
+                                        map.setCenter(mapMarker.getPosition());
+                                    }
+                                })(mapMarker));
 
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
-                    center: new google.maps.LatLng(37.3501577, -121.9384859),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-
-                var infowindow = new google.maps.InfoWindow();
-
-                var marker, i;
-                var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-                var icon = {
-                    url: 'http://icons.iconarchive.com/icons/sonya/swarm/256/gym-icon.png', // url
-                    scaledSize: new google.maps.Size(25, 25), // scaled size
-                    origin: new google.maps.Point(0, 0), // origin
-                    anchor: new google.maps.Point(0, 0) // anchor
-                };
-
-                for (i = 0; i < locations.length; i++) {
-                    marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                        map: map,
-                        icon: icon,
-                        url: locations[i][4]
-                    });
-
-                    google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
-                        return function () {
-                            infowindow.setContent(locations[i][0]);
-                            infowindow.open(map, marker);
-                            map.setZoom(15);
-                            map.setCenter(marker.getPosition());
-                        }
-                    })(marker, i));
-
-                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                        return function () {
-                            scope.goToFacility(locations[0]);
-                        }
-                    })(marker, i));
+                                google.maps.event.addListener(mapMarker, 'dblclick', (function () {
+                                    return function () {
+                                        scope.goToFacility(marker.name);
+                                    }
+                                })());
+                            });
+                        });
                 }
             },
-            controller: function ($scope, $state) {
+            controller: function ($scope, $state, $http) {
+                $scope.httpService = $http;
                 $scope.goToFacility = function (selectedLocation) {
                     $state.go('facility', {facilityInfo: selectedLocation});
                 }
             }
         };
-    })
+    }]);
 
 
 
