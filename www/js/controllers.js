@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
 
         $scope.login = function () {
             GoogleSignin.signIn().then(function (user) {
-                $state.go('map', {user: user});
+                $state.go('tab.map', {user: user});
                 console.log(user);
             }, function (err) {
                 console.log(err);
@@ -29,13 +29,13 @@ angular.module('starter.controllers', [])
         $scope.closeLogin = function () {
             $scope.modal.hide();
             $scope.hideLogin = false;
-            $state.go('map', {user: $scope.loginData.username});
+            $state.go('tab.map', {user: $scope.loginData.username});
         };
     })
 
 
     //home page controller
-    .controller('MapCtrl', function ($scope, $state, $http, $ionicHistory) {
+    .controller('MapCtrl', function ($scope, $state, $http) {
         if (!$state.params.user) {
             $state.go('login');
         }
@@ -52,10 +52,9 @@ angular.module('starter.controllers', [])
 
         }
 
-        $scope.goBack = function () {
-            $ionicHistory.goBack();
-        }
     })
+
+
     .controller('FacilityCtrl', function ($scope, $state) {
         $scope.handleMoreClick = function () {
 

@@ -1,63 +1,50 @@
-<ion-view id="facility-page">
-    <ion-nav-bar class="bar-positive">
-        <ion-nav-title>
-            Facility
-        </ion-nav-title>
-        <ion-nav-back-button>
-            <button class="button button-clear  ion-arrow-left-c  " ng-click="goBack()"></button>
-        </ion-nav-back-button>
-        <ion-nav-buttons side="right">
-            <!--<button class="button button-icon button-clear ion-navicon" menu-toggle="right">-->
-            <!--</button>-->
-        </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-content class="has-header">
-        <div class="facilities-container">
-            <div class='circle-container'>
-                <a href='#' class='center'><img
-                        src='http://softwaregroup-int.com/wp-content/uploads/2016/03/app-app-icon0.png'></a>
-                <a href='#' class='deg0'><img src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png'></a>
-                <a href='#' class='deg45'><img src="../img/tb.png"></a>
-                <a href='#' class='deg135'><img
-                        src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png'></a>
-                <a href='#' class='deg180'><img
-                        src='https://images.vexels.com/media/users/3/129495/isolated/preview/07cbba7486bb2d9fada8510fb4b598c3-bmx-icono-del-c-rculo-deporte-by-vexels.png'></a>
-                <a href='#' class='deg225'><img
-                        src="../img/ball.png"></a>
-                <a href='#' class='deg315'><img
-                        src="../img/yoga.png"></a>
-            </div>
-            <div class="justify-center">
-                <button ng-click="handleMoreClick()" class="button button-positive" type="button">More</button>
-            </div>
-        </div>
-    </ion-content>
-    <!--<ion-side-menus enable-menu-with-back-views="false">-->
-        <!--<ion-side-menu-content>-->
-        <!--</ion-side-menu-content>-->
-        <!--<ion-side-menu side="right">-->
-            <!--<ion-header-bar class="bar-stable">-->
-                <!--<h1 class="title">Menu </h1>-->
-            <!--</ion-header-bar>-->
-            <!--<ion-content>-->
-                <!--<ion-list>-->
-                    <!--<ion-item menu-close href="#/app/help">-->
-                        <!--Help-->
-                    <!--</ion-item>-->
-                    <!--<ion-item menu-close href="#/app/about">-->
-                        <!--About Us-->
-                    <!--</ion-item>-->
-                <!--</ion-list>-->
-            <!--</ion-content>-->
-        <!--</ion-side-menu>-->
-    <!--</ion-side-menus>-->
-    <ion-footer-bar class="bar-dark">
-        <ion-tabs class="tabs-positive tabs-icon-only">
-            <ion-tab title="Report" icon-on="ion-clock" icon-off="ion-clock">
-                <!-- Tab 1 content -->
-            </ion-tab>
-        </ion-tabs>
-    </ion-footer-bar>
+<ion-view id="facility-page" view-title="facility">
+    <ion-side-menus enable-menu-with-back-views="false">
+        <ion-side-menu-content>
+            <ion-nav-bar class = "bar-positive">
+                <ion-nav-title>
+                    Facility
+                </ion-nav-title>
+                <ion-nav-back-button >
+                    <button class="button button-clear  ion-arrow-left-c  " ng-click = "goBack()"></button>
+                </ion-nav-back-button>
+                <ion-nav-buttons side="right">
+                    <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                    </button>
+                </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-content class="has-header">
+                <div class="facilities-container">
+                    <div class='circle-container'>
+                        <a href='#' class='center'><img
+                                src='http://softwaregroup-int.com/wp-content/uploads/2016/03/app-app-icon0.png'></a>
+                        <a href='#' class='deg0'><img src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png'></a>
+                        <a href='#' class='deg45'><img src="../img/tb.png"></a>
+                        <a href='#' class='deg135'><img
+                                src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png'></a>
+                        <a href='#' class='deg180'><img
+                                src='https://images.vexels.com/media/users/3/129495/isolated/preview/07cbba7486bb2d9fada8510fb4b598c3-bmx-icono-del-c-rculo-deporte-by-vexels.png'></a>
+                        <a href='#' class='deg225'><img
+                                src="../img/ball.png"></a>
+                        <a href='#' class='deg315'><img
+                                src= "../img/yoga.png"></a>
+                    </div>
+                    <div class="justify-center">
+                        <button ng-click="handleMoreClick()" class="button button-positive" type="button">More</button>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-side-menu-content>
+        <ion-side-menu side="right">
+            <ion-header-bar class="bar-stable">
+                <h1 class="title">Menu </h1>
+            </ion-header-bar>
+            <ion-content>
+                <ion-item menu-close href="#/help">
+                    Help
+                </ion-item>
+            </ion-content>
+        </ion-side-menu>
 </ion-view>
 
 
