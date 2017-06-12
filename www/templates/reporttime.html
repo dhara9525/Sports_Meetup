@@ -1,0 +1,82 @@
+<ion-view id="report-page" view-title="report">
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class = "bar-positive">
+            <ion-nav-title>
+                Report Gym Traffic
+            </ion-nav-title>
+            <ion-nav-back-button >
+                <button class="button button-clear  ion-arrow-left-c  " ng-click = "goBack()"></button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-content class="has-header page-margin">
+            <ion-list>
+            <label class = "item item-input item-select">
+                <div class = "input-label">
+                    Gym
+                </div>
+                <select>
+                    <option>SCU Gym</option>
+                    <option selected>SCU Gym 1</option>
+                    <option>SCU Gym 2</option>
+                </select>
+            </label>
+                <label class = "item item-input item-select">
+                    <div class = "input-label">
+                        Facility
+                    </div>
+                    <select>
+                        <option>Basketball Courts</option>
+                        <option selected>Sport Training</option>
+                        <option>Weight Room</option>
+                        <option>Multipurpose Room</option>
+                        <option>Yoga Room</option>
+                    </select>
+                </label>
+
+                    <label class = "item item-input item-select">
+                        <div class = "input-label">
+                            Gym-Crowd
+                        </div>
+                        <select>
+                            <option>Less</option>
+                            <option selected>Normal</option>
+                            <option>Full</option>
+                        </select>
+                    </label>
+
+                <label class = "item item-input item-select">
+                    <div class = "input-label">
+                        Wait-Time
+                    </div>
+                    <select>
+                        <option> Less Than 5min</option>
+                        <option selected>Between 6 to 10min</option>
+                        <option>Between 11 to 15min</option>
+                        <option>More than 20</option>
+                    </select>
+                </label>
+
+            </ion-list>
+
+            <div class="justify-center">
+                <button  ng-click="submitComments()" class="button button-positive submit-comments" type="button">Submit</button>
+            </div>
+
+        </ion-content>
+    </ion-side-menu-content>
+    <ion-side-menu side="right">
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Menu </h1>
+        </ion-header-bar>
+        <ion-content>
+        <ion-item menu-close href="#/help">
+            Help
+        </ion-item>
+        </ion-content>
+    </ion-side-menu>
+    </ion-view>

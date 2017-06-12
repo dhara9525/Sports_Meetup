@@ -31,22 +31,27 @@
                 <h1 class="title">Menu </h1>
             </ion-header-bar>
             <ion-content>
-                <ion-list>
-                    <ion-item menu-close href="#/app/help">
-                        Help
-                    </ion-item>
-                    <ion-item menu-close href="#/app/about">
-                        About Us
-                    </ion-item>
-                </ion-list>
+                <ion-item menu-close href="#/help">
+                    Help
+                </ion-item>
             </ion-content>
         </ion-side-menu>
 
         <ion-footer-bar class="bar-dark">
-            <ion-tabs class="tabs-positive tabs-icon-only">
+            <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
-                <ion-tab title="Report" icon-on="ion-clock" icon-off="ion-clock">
+                <ion-tab title="map" icon-on="ion-map" icon-off="ion-map" href="#/tab/map">
                     <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-map"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="reporttime" icon-on="ion-clock" icon-off="ion-clock" href="#/tab/reporttime">
+                    <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-reporttime"></ion-nav-view>
+                </ion-tab>
+
+                <ion-tab title="about" icon-on="ion-information" icon-off="ion-information" href="#/tab/about">
+                    <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-about"></ion-nav-view>
                 </ion-tab>
 
             </ion-tabs>

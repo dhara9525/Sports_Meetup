@@ -29,14 +29,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
             templateUrl: 'templates/login.html',
             controller: 'LoginCtrl'
         })
-        .state('map', {
-            url: '/map',
-            templateUrl: 'templates/map.html',
-            controller: 'MapCtrl',
-            params: {
-                user: null
-            }
-        })
+
         .state('facility', {
             url: '/facility',
             templateUrl: 'templates/facility.html',
@@ -46,22 +39,63 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
                 facilityInfo: null
             }
         })
-        .state('help', {
-            url: '/help',
-            templateUrl: 'templates/help.html',
-            controller: 'HelpCtrl',
+        .state('tab', {
+            url: '/tab',
+            abstract: true,
+            templateUrl: 'templates/tabs.html'
+        })
+
+        // Each tab has its own nav history stack:
+
+        .state('tab.map', {
+            url: '/map',
+            views: {
+                'tab-map': {
+                    templateUrl: 'templates/map.html',
+                    controller: 'MapCtrl'
+                }
+            },
             params: {
                 user: null
             }
         })
-        .state('about', {
-        url: '/about',
-        templateUrl: 'templates/about.html',
-        controller: 'AboutCtrl',
-        params: {
-            user: null
-        }
-    });
+
+        .state('tab.reporttime', {
+            url: '/reporttime',
+            views: {
+                'tab-reporttime': {
+                    templateUrl: 'templates/reporttime.html',
+                    controller: 'ReporttimeCtrl'
+                }
+            },
+            params: {
+                user: null
+            }
+        })
+
+        .state('tab.about', {
+            url: '/about',
+            views: {
+                'tab-about': {
+                    templateUrl: 'templates/about.html',
+                    controller: 'AboutCtrl'
+                }
+            },
+            params: {
+                user: null
+            }
+        })
+
+        .state('help', {
+            url: '/help',
+            controller: 'HelpCtrl',
+            templateUrl: 'templates/help.html',
+            params: {
+                user: null
+            }
+        })
+
+
 
     GoogleSigninProvider.init({
         client_id: '1054860948248-hkkkfe582ct1aqmi213h4bahmco7t9uj.apps.googleusercontent.com',
