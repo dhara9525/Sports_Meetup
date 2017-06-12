@@ -108,7 +108,7 @@ angular.module('starter.controllers', [])
             $ionicHistory.goBack();
         }
     })
-<<<<<<< HEAD
+
 
 
 
@@ -149,14 +149,7 @@ angular.module('starter.controllers', [])
     })
 
 
-
-
-
-
     .directive('map',['$http',function($http) {
-=======
-    .directive('map', ['$http', function ($http) {
->>>>>>> origin/master
         return {
             restrict: 'A',
             bindToController: true,
