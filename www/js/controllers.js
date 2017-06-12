@@ -56,10 +56,25 @@ angular.module('starter.controllers', [])
             $ionicHistory.goBack();
         }
     })
-    .controller('FacilityCtrl', function ($scope, $state) {
+    .controller('FacilityCtrl', function ($scope, $state, $http) {
+        if (!$state.params.facilityInfo) {
+            $state.go('map');
+        }
+
         $scope.handleMoreClick = function () {
 
         };
+
+        function init() {
+            $scope.facilityInfo = $state.params.facilityInfo;
+
+            $http.get("https://datastoretest-164219.appspot.com/test/gym")
+                .then(function (response) {
+                    $scope.facilityData = response.data.results;
+                });
+        }
+
+        init();
     })
     .controller('HelpCtrl', function ($scope, $state) {
         $scope.comment = {
@@ -94,7 +109,7 @@ angular.module('starter.controllers', [])
             $ionicHistory.goBack();
         }
     })
-    .directive('map',['$http',function($http) {
+    .directive('map', ['$http', function ($http) {
         return {
             restrict: 'A',
             bindToController: true,
@@ -102,9 +117,9 @@ angular.module('starter.controllers', [])
 
                 getGymMapData();
 
-                function getGymMapData(){
+                function getGymMapData() {
                     $http.get("https://datastoretest-164219.appspot.com/test/map")
-                        .then(function(response) {
+                        .then(function (response) {
                             var mapMarkers = response.data.results;
 
                             var map = new google.maps.Map(document.getElementById('map'), {
@@ -124,7 +139,7 @@ angular.module('starter.controllers', [])
                                 anchor: new google.maps.Point(0, 0) // anchor
                             };
 
-                            mapMarkers.forEach(function(marker){
+                            mapMarkers.forEach(function (marker) {
                                 var mapMarker = new google.maps.Marker({
                                     position: new google.maps.LatLng(marker.lat, marker.lon),
                                     map: map,
@@ -142,7 +157,7 @@ angular.module('starter.controllers', [])
 
                                 google.maps.event.addListener(mapMarker, 'dblclick', (function () {
                                     return function () {
-                                        scope.goToFacility(marker.name);
+                                        scope.goToFacility(marker);
                                     }
                                 })());
                             });
