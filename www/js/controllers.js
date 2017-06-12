@@ -36,9 +36,9 @@ angular.module('starter.controllers', [])
 
     //home page controller
     .controller('MapCtrl', function ($scope, $state, $http) {
-        if (!$state.params.user) {
-            $state.go('login');
-        }
+        // if (!$state.params.user) {
+        //     $state.go('login');
+        // }
         $scope.user = $state.params.user;
 
         $scope.userName = $scope.user ? $scope.user.w3.ig : "";
@@ -54,12 +54,6 @@ angular.module('starter.controllers', [])
 
     })
     .controller('FacilityCtrl', function ($scope, $state, $http) {
-        if (!$state.params.facilityInfo) {
-            $state.go('map');
-        }
-
-    })
-    .controller('FacilityCtrl', function ($scope, $state) {
         $scope.handleMoreClick = function () {
 
         };
@@ -67,7 +61,7 @@ angular.module('starter.controllers', [])
         function init() {
             $scope.facilityInfo = $state.params.facilityInfo;
 
-            $http.get("https://datastoretest-164219.appspot.com/test/gym")
+            $http.get("https://datastoretest-164219.appspot.com/test/gym?gid=" + $scope.facilityInfo.gid)
                 .then(function (response) {
                     $scope.facilityData = response.data.results;
                 });
