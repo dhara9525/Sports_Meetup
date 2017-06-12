@@ -15,12 +15,14 @@
         <div class="facilities-container">
             <div class='circle-container'>
                 <a class='center'><img src='http://softwaregroup-int.com/wp-content/uploads/2016/03/app-app-icon0.png'></a>
+
                 <a  ng-repeat="facility in facilityData" ng-class="{'deg0': $index === 0 , 'deg45': $index === 1, 'deg135': $index === 2, 'deg180': $index === 3, 'deg225': $index === 4, 'deg315': $index === 5 } ">
                     <img ng-click="nextpage1(facility)"  ng-if="facility.tid === '1'" src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png' />
                     <img ng-click="nextpage2(facility)"  ng-if="facility.tid === '2'" src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png' />
                     <img ng-click="nextpage3(facility)"  ng-if="facility.tid === '3'" src='../img/ball.png' />
                     <img ng-click="nextpage4(facility)"  ng-if="facility.tid === '4'" src='../img/tb.png' />
                     <img ng-click="nextpage5(facility)"  ng-if="facility.tid === '5'" src='https://images.vexels.com/media/users/3/129495/isolated/preview/07cbba7486bb2d9fada8510fb4b598c3-bmx-icono-del-c-rculo-deporte-by-vexels.png' />
+
                 </a>
             </div>
             <div class="justify-center">
