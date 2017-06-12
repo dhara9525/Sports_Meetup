@@ -1,7 +1,7 @@
 #map{
-  width:50%;
-  height:500px;
-  margin:10px auto;
+  width:95%;
+  height:95%;
+  margin:15px auto;
 }
 
 .scroll {
@@ -31,4 +31,119 @@
 .login-footer img{
   width: 100%;
   height: 100%;
+}
+.circle-container {
+    position: relative;
+    width: 24em;
+    height: 24em;
+    padding: 2.8em;
+    margin: 1.75em auto 0;
+}
+.circle-container a {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 4em; height: 4em;
+    margin: -2em;
+}
+.circle-container img { display: block; width: 100%; }
+.deg0 { transform: translate(11em); }
+.deg45 { transform: rotate(45deg) translate(12em) rotate(-45deg); }
+.deg135 { transform: rotate(135deg) translate(12em) rotate(-135deg); }
+.deg180 { transform: translate(-11em); }
+.deg225 { transform: rotate(225deg) translate(12em) rotate(-225deg); }
+.deg315 { transform: rotate(315deg) translate(12em) rotate(-315deg); }
+
+
+.circle-container:after {
+    position: absolute;
+    top: 2.8em; left: 2.8em;
+    width: 24em; height: 24em;
+    opacity: .3;
+    pointer-events: none;
+    content: '';
+}
+
+.justify-center{
+    text-align: center;
+}
+
+.help-container{
+    padding: 10px;
+}
+
+
+.help-container textarea {
+    width: 90%;
+    height: 75%;
+    margin-top: 40px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+}
+
+
+
+
+.submit-comments, .other-contact{
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.call-icon{
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}
+
+.site-footer p.social a {
+    border: 1px solid #949792;
+    border-radius: 50%;
+    color: #949792;
+    display: inline-block;
+    height: 182px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 182px;
+}
+
+.site-footer p.social a:hover {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.custom-icon {
+    color : #0c59cf;
+}
+
+.heading-color{
+    color:#0c59cf;;
+}
+
+
+
+.top-margin{
+    margin-top:40px;
+}
+.left-margin{
+    margin-left:50px;
+}
+
+.right-margin{
+    margin-right:50px;
+}
+
+.bottom-margin{
+    margin-bottom: 20px;
+}
+
+.page-margin{
+    margin:20px;
+}
+
+.custom-border {
+    border: 2px solid #0c59cf;
+    text-align: center;
 }
