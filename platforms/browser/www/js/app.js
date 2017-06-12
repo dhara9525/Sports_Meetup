@@ -45,6 +45,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
             url: '/gymPage',
             templateUrl: 'templates/gymPage.html',
             controller: 'GymPageCtrl',
+            params: {
+                selectedFacilityInfo: null,
+                SelectedTrafficInfo: null
+            }
         })
 
 

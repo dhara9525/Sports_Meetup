@@ -58,6 +58,8 @@ angular.module('starter.controllers', [])
 
         };
 
+        var SelectFacilityInfo;
+
         function init() {
             $scope.facilityInfo = $state.params.facilityInfo;
 
@@ -65,10 +67,61 @@ angular.module('starter.controllers', [])
                 .then(function (response) {
                     $scope.facilityData = response.data.results;
                 });
+
+            SelectFacilityInfo =  $scope.facilityInfo.gid;
         }
 
         init();
+
+        $scope.nextpage1 = function(selectGymInfo){
+
+            $http.get("https://datastoretest-164219.appspot.com/test/facility?fid=" + selectGymInfo.fid)
+                .then(function (response) {
+                    var trafficWaitTime = response.data.results;
+                    $state.go('gymPage',{selectedFacilityInfo: selectGymInfo, SelectedTrafficInfo: trafficWaitTime});
+                });
+
+        }
+
+        $scope.nextpage2 = function(selectGymInfo){
+            $http.get("https://datastoretest-164219.appspot.com/test/facility?fid=" + selectGymInfo.fid)
+                .then(function (response) {
+                    var trafficWaitTime = response.data.results;
+                    $state.go('gymPage',{selectedFacilityInfo: selectGymInfo, SelectedTrafficInfo: trafficWaitTime});
+                });
+        }
+
+
+        $scope.nextpage3 = function(selectGymInfo){
+            $http.get("https://datastoretest-164219.appspot.com/test/facility?fid=" + selectGymInfo.fid)
+                .then(function (response) {
+                    var trafficWaitTime = response.data.results;
+                    $state.go('gymPage',{selectedFacilityInfo: selectGymInfo, SelectedTrafficInfo: trafficWaitTime});
+                });
+        }
+
+        $scope.nextpage4 = function(selectGymInfo){
+            $http.get("https://datastoretest-164219.appspot.com/test/facility?fid=" + selectGymInfo.fid)
+                .then(function (response) {
+                    var trafficWaitTime = response.data.results;
+                    $state.go('gymPage',{selectedFacilityInfo: selectGymInfo, SelectedTrafficInfo: trafficWaitTime});
+                });
+        }
+
+        $scope.nextpage5 = function(selectGymInfo){
+            $http.get("https://datastoretest-164219.appspot.com/test/facility?fid=" + selectGymInfo.fid)
+                .then(function (response) {
+                    var trafficWaitTime = response.data.results;
+                    $state.go('gymPage',{selectedFacilityInfo: selectGymInfo, SelectedTrafficInfo: trafficWaitTime});
+                });
+        }
+
+
+
     })
+
+
+
     .controller('HelpCtrl', function ($scope, $state) {
         $scope.comment = {
             text: ""
@@ -107,9 +160,9 @@ angular.module('starter.controllers', [])
 
 
     .controller('GymPageCtrl', function ($scope, $state, $ionicHistory) {
-
+        $scope.selectedFacilityInfo = $state.params.selectedFacilityInfo;
+        $scope.SelectedTrafficInfo = $state.params.SelectedTrafficInfo;
     })
-
 
     .controller('ReporttimeCtrl', function ($scope, $state, $ionicHistory) {
          var GymCrowd;
@@ -203,10 +256,19 @@ angular.module('starter.controllers', [])
                 $scope.goToFacility = function (selectedLocation) {
                     $state.go('facility', {facilityInfo: selectedLocation});
                 }
+
+                $scope.go = function ( path ) {
+                    $location.path( path );
+                };
+
             }
         };
     }]);
 
+
+$scope.go = function ( path ) {
+    $location.path( path );
+};
 
 
 

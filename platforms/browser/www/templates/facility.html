@@ -15,27 +15,37 @@
         <div class="facilities-container">
             <div class='circle-container'>
                 <a class='center'><img src='http://softwaregroup-int.com/wp-content/uploads/2016/03/app-app-icon0.png'></a>
-                <!--<a class='deg0'><img src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png'></a>-->
-                <!--<a class='deg45'><img src="../img/tb.png"></a>-->
-                <!--<a class='deg135'><img src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png'></a>-->
-                <!--<a class='deg180'><img src='https://images.vexels.com/media/users/3/129495/isolated/preview/07cbba7486bb2d9fada8510fb4b598c3-bmx-icono-del-c-rculo-deporte-by-vexels.png'></a>-->
-                <!--<a class='deg225'><img src="../img/ball.png"></a>-->
-                <!--<a class='deg315'><img src="../img/yoga.png"></a>-->
-                <a ng-repeat="facility in facilityData" ng-class="{'deg0': $index === 0 , 'deg45': $index === 1, 'deg135': $index === 2, 'deg180': $index === 3, 'deg225': $index === 4, 'deg315': $index === 5 } ">
-                    <img ng-if="facility.fid === 'f1' && facility.gid === facilityInfo.gid" src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png' />
-                    <img ng-if="facility.fid === 'f2' && facility.gid === facilityInfo.gid" src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png' />
+                <a  ng-repeat="facility in facilityData" ng-class="{'deg0': $index === 0 , 'deg45': $index === 1, 'deg135': $index === 2, 'deg180': $index === 3, 'deg225': $index === 4, 'deg315': $index === 5 } ">
+                    <img ng-click="nextpage1(facility)"  ng-if="facility.tid === '1'" src='https://images.vexels.com/media/users/3/132665/isolated/lists/cf0b4b825cd99b7e00ccf5cad3e7a014-weightlifting-circle-icon.png' />
+                    <img ng-click="nextpage2(facility)"  ng-if="facility.tid === '2'" src='http://www.freeiconspng.com/uploads/swim-icon-blue-9.png' />
+                    <img ng-click="nextpage3(facility)"  ng-if="facility.tid === '3'" src='../img/ball.png' />
+                    <img ng-click="nextpage4(facility)"  ng-if="facility.tid === '4'" src='../img/tb.png' />
+                    <img ng-click="nextpage5(facility)"  ng-if="facility.tid === '5'" src='https://images.vexels.com/media/users/3/129495/isolated/preview/07cbba7486bb2d9fada8510fb4b598c3-bmx-icono-del-c-rculo-deporte-by-vexels.png' />
                 </a>
             </div>
             <div class="justify-center">
-                <button ng-click="handleMoreClick()" class="button button-positive" type="button">More</button>
+                <button  class="button button-positive" type="button">More</button>
             </div>
         </div>
+
     </ion-content>
     <ion-footer-bar class="bar-dark">
-        <ion-tabs class="tabs-positive tabs-icon-only">
-            <ion-tab title="Report" icon-on="ion-clock" icon-off="ion-clock">
+        <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+            <ion-tab title="map" icon-on="ion-map" icon-off="ion-map" href="#/tab/map">
                 <!-- Tab 1 content -->
+                <ion-nav-view name="tab-map"></ion-nav-view>
             </ion-tab>
+            <ion-tab title="reporttime" icon-on="ion-clock" icon-off="ion-clock" href="#/tab/reporttime">
+                <!-- Tab 1 content -->
+                <ion-nav-view name="tab-reporttime"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="about" icon-on="ion-information" icon-off="ion-information" href="#/tab/about">
+                <!-- Tab 1 content -->
+                <ion-nav-view name="tab-about"></ion-nav-view>
+            </ion-tab>
+
         </ion-tabs>
     </ion-footer-bar>
 </ion-view>
