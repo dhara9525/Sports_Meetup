@@ -93,6 +93,50 @@ angular.module('starter.controllers', [])
             $ionicHistory.goBack();
         }
     })
+
+
+
+    .controller('GymPageCtrl', function ($scope, $state, $ionicHistory) {
+
+    })
+
+
+    .controller('ReporttimeCtrl', function ($scope, $state, $ionicHistory) {
+         var GymCrowd;
+         var Facility;
+         var Gym;
+
+
+        $scope.showSelectGym = function(mySelectGym) {
+            console.log(mySelectGym);
+            Gym =  mySelectGym;
+        }
+
+
+        $scope.showSelectGymCrowd = function(mySelect) {
+            console.log(mySelect);
+            GymCrowd =  mySelect;
+        }
+
+
+        $scope.showSelectFacility = function( mySelectFacility) {
+            console.log( mySelectFacility);
+            Facility =   mySelectFacility;
+        }
+
+
+        $scope.submitComments = function () {
+            var x = document.getElementById("myText").value;
+            alert("Thanks.. Your comment has been submitted: \n \n Gym: " +Gym + "\n Facility: - " +Facility +"\n Gym Crowd: " +GymCrowd +"\n Wait Time: "+x );
+        }
+
+    })
+
+
+
+
+
+
     .directive('map',['$http',function($http) {
         return {
             restrict: 'A',

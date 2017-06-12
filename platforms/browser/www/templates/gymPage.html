@@ -1,5 +1,53 @@
+<ion-view id="gymPage-page" view-title="gymPage">
+    <ion-side-menus enable-menu-with-back-views="false">
+        <ion-side-menu-content>
+            <ion-nav-bar class = "bar-positive">
+                <ion-nav-title>
+                    Traffic Status
+                </ion-nav-title>
+                <ion-nav-back-button >
+                    <button class="button button-clear  ion-arrow-left-c  " ng-click = "goBack()"></button>
+                </ion-nav-back-button>
+                <ion-nav-buttons side="right">
+                    <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+                    </button>
+                </ion-nav-buttons>
+            </ion-nav-bar>
+            <ion-content class="has-header">
 
-    <ion-content class="has-header">
-      <h1>Mally Center</h1>
-      <img src="../img/login_footer.jpg"> </img>
-    </ion-content>
+            </ion-content>
+        </ion-side-menu-content>
+        <ion-side-menu side="right">
+            <ion-header-bar class="bar-stable">
+                <h1 class="title">Menu </h1>
+            </ion-header-bar>
+            <ion-content>
+                <ion-item menu-close href="#/help">
+                    Help
+                </ion-item>
+            </ion-content>
+        </ion-side-menu>
+        <ion-footer-bar class="bar-dark">
+            <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+                <ion-tab title="map" icon-on="ion-map" icon-off="ion-map" href="#/tab/map">
+                    <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-map"></ion-nav-view>
+                </ion-tab>
+                <ion-tab title="reporttime" icon-on="ion-clock" icon-off="ion-clock" href="#/tab/reporttime">
+                    <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-reporttime"></ion-nav-view>
+                </ion-tab>
+
+                <ion-tab title="about" icon-on="ion-information" icon-off="ion-information" href="#/tab/about">
+                    <!-- Tab 1 content -->
+                    <ion-nav-view name="tab-about"></ion-nav-view>
+                </ion-tab>
+
+            </ion-tabs>
+        </ion-footer-bar>
+</ion-view>
+
+
+
+

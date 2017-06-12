@@ -1,9 +1,9 @@
-<ion-view id="gymPage-page" view-title="gymPage">
+<ion-view id="help-page" view-title="help">
     <ion-side-menus enable-menu-with-back-views="false">
         <ion-side-menu-content>
             <ion-nav-bar class = "bar-positive">
                 <ion-nav-title>
-                    Traffic Status
+                    Help
                 </ion-nav-title>
                 <ion-nav-back-button >
                     <button class="button button-clear  ion-arrow-left-c  " ng-click = "goBack()"></button>
@@ -14,7 +14,16 @@
                 </ion-nav-buttons>
             </ion-nav-bar>
             <ion-content class="has-header">
-
+                <div class="help-container">
+                    <h4>Let us know your comments, concerns or requests:</h4>
+                    <textarea name="comment" ng-model="comment.text" rows="5" cols="30" id="comment-textarea" placeholder="Put any comment..."></textarea>
+                    <div class="justify-center">
+                        <button ng-click="submitComments()" class="button button-positive submit-comments" type="button">Send My Comments</button>
+                        <h5 class="other-contact">
+                            Or <img class="call-icon" src="../img/call_us.png" /> 408-000-0000
+                        </h5>
+                    </div>
+                </div>
             </ion-content>
         </ion-side-menu-content>
         <ion-side-menu side="right">
@@ -27,6 +36,7 @@
                 </ion-item>
             </ion-content>
         </ion-side-menu>
+
         <ion-footer-bar class="bar-dark">
             <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 

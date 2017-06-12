@@ -39,6 +39,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'google-signin'])
                 facilityInfo: null
             }
         })
+
+
+        .state('gymPage', {
+            url: '/gymPage',
+            templateUrl: 'templates/gymPage.html',
+            controller: 'GymPageCtrl',
+        })
+
+
         .state('tab', {
             url: '/tab',
             abstract: true,
