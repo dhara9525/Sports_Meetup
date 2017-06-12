@@ -14,9 +14,13 @@
                 </ion-nav-buttons>
             </ion-nav-bar>
             <ion-content class="has-header">
-                <h1>Facility Details</h1>
-                <h1>{{selectedFacilityInfo.description}}</h1>
-                <h1>{{SelectedTrafficInfo}}</h1>
+                <ion-list>
+                    <ion-list-header class="reportPageheading">
+                        <h2>{{selectedFacilityInfo.description}}</h2>
+                    </ion-list-header>
+                    <ion-item><ion-label> Gym: {{SelectedGymName}}</ion-label></ion-item>
+                    <ion-item><ion-label> Estimated Wait : {{SelectedTrafficInfo[0].waitTime}} Mins</ion-item>
+                </ion-list>
             </ion-content>
         </ion-side-menu-content>
         <ion-side-menu side="right">

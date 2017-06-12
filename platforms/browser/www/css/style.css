@@ -4,6 +4,12 @@
   margin:15px auto;
 }
 
+.reportPageheading{
+    text-align: center;
+    margin: 50px;
+    text-color: Gray;
+}
+
 .scroll {
   height: 100%;
 }

@@ -20,9 +20,10 @@
                     Gym
                 </div>
                 <select ng-model="mySelectGym" ng-change="showSelectGym(mySelectGym)">
-                    <option>SCU Gym</option>
-                    <option>SCU Gym1</option>
-                    <option>SCU Gym2 </option>
+                    <option>My Gym</option>
+                    <option>City Sports Club</option>
+                    <option>Malley Center</option>
+                    <option>24 Hour Fitness</option>
                 </select>
             </label>
                 <label class = "item item-input item-select">
@@ -31,11 +32,12 @@
                     </div>
 
                     <select ng-model="mySelectFacility" ng-change="showSelectFacility(mySelectFacility)">
-                        <option>Basketball Courts</option>
-                        <option selected>Sport Training</option>
-                        <option>Weight Room</option>
-                        <option>Multipurpose Room</option>
-                        <option>Yoga Room</option>
+                        <option>Gymnastic</option>
+                        <option selected>weight room</option>
+                        <option>Tread mill</option>
+                        <option>Stationary bike</option>
+                        <option>soccer</option>
+                        <option>swmming pool</option>
                     </select>
                 </label>
 
@@ -55,7 +57,6 @@
             <div class="justify-center">
                 <button  ng-click="submitComments()" class="button button-positive submit-comments" type="button">Submit</button>
             </div>
-
         </ion-content>
     </ion-side-menu-content>
     <ion-side-menu side="right">
